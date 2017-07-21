@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (c) 2015, Texas Instruments Incorporated - http://www.ti.com/
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,19 +28,20 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*---------------------------------------------------------------------------*/
-#ifndef PROJECT_CONF_H_
-#define PROJECT_CONF_H_
+/**
+ * \addtogroup launchpad-peripherals
+ * @{
+ *
+ * \file
+ * Generic module controlling LaunchPad sensors
+ */
 /*---------------------------------------------------------------------------*/
-/* Disable button shutdown functionality */
-#define BUTTON_SENSOR_CONF_ENABLE_SHUTDOWN    0
+#include "contiki.h"
+#include "launchpad/button-sensor.h"
+
+#include <string.h>
 /*---------------------------------------------------------------------------*/
-/* Enable the ROM bootloader */
-#define ROM_BOOTLOADER_ENABLE                 1
+/** \brief Exports a global symbol to be used by the sensor API */
+SENSORS(&button_left_sensor, &button_right_sensor);
 /*---------------------------------------------------------------------------*/
-/* Change to match your configuration */
-#define IEEE802154_CONF_PANID            0xABCD
-#define RF_CORE_CONF_CHANNEL                 25
-#define RF_BLE_CONF_ENABLED                   0
-/*---------------------------------------------------------------------------*/
-#endif /* PROJECT_CONF_H_ */
-/*---------------------------------------------------------------------------*/
+/** @} */

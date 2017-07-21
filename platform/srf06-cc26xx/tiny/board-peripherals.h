@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (c) 2015, Texas Instruments Incorporated - http://www.ti.com/
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,19 +28,29 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*---------------------------------------------------------------------------*/
-#ifndef PROJECT_CONF_H_
-#define PROJECT_CONF_H_
+/** \addtogroup cc26xx-srf-tag
+ * @{
+ *
+ * \defgroup launchpad-peripherals LaunchPad peripherals
+ *
+ * Defines related to LaunchPad peripherals.
+ *
+ * @{
+ *
+ * \file
+ * Header file with definitions related to LaunchPad peripherals
+ *
+ * \note   Do not include this file directly.
+ */
 /*---------------------------------------------------------------------------*/
-/* Disable button shutdown functionality */
-#define BUTTON_SENSOR_CONF_ENABLE_SHUTDOWN    0
+#ifndef BOARD_PERIPHERALS_H_
+#define BOARD_PERIPHERALS_H_
 /*---------------------------------------------------------------------------*/
-/* Enable the ROM bootloader */
-#define ROM_BOOTLOADER_ENABLE                 1
+#include "ext-flash.h"
 /*---------------------------------------------------------------------------*/
-/* Change to match your configuration */
-#define IEEE802154_CONF_PANID            0xABCD
-#define RF_CORE_CONF_CHANNEL                 25
-#define RF_BLE_CONF_ENABLED                   0
+#endif /* BOARD_PERIPHERALS_H_ */
 /*---------------------------------------------------------------------------*/
-#endif /* PROJECT_CONF_H_ */
-/*---------------------------------------------------------------------------*/
+/**
+ * @}
+ * @}
+ */

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (c) 2015, Texas Instruments Incorporated - http://www.ti.com/
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,19 +28,65 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*---------------------------------------------------------------------------*/
-#ifndef PROJECT_CONF_H_
-#define PROJECT_CONF_H_
+/**
+ * \addtogroup launchpad-peripherals
+ * @{
+ *
+ * \file
+ *  Driver for LaunchPad LEDs
+ */
 /*---------------------------------------------------------------------------*/
-/* Disable button shutdown functionality */
-#define BUTTON_SENSOR_CONF_ENABLE_SHUTDOWN    0
+#include "contiki.h"
+#include "dev/leds.h"
+
+#include "ti-lib.h"
 /*---------------------------------------------------------------------------*/
-/* Enable the ROM bootloader */
-#define ROM_BOOTLOADER_ENABLE                 1
+static unsigned char c;
+static int inited = 0;
 /*---------------------------------------------------------------------------*/
-/* Change to match your configuration */
-#define IEEE802154_CONF_PANID            0xABCD
-#define RF_CORE_CONF_CHANNEL                 25
-#define RF_BLE_CONF_ENABLED                   0
+void
+leds_arch_init(void)
+{
+  if(inited) {
+    return;
+  }
+  inited = 1;
+
+  ti_lib_rom_ioc_pin_type_gpio_output(BOARD_IOID_LED_1);
+  ti_lib_rom_ioc_pin_type_gpio_output(BOARD_IOID_LED_2);
+
+  ti_lib_gpio_set_multi_dio(BOARD_LED_ALL);   // ti_lib_gpio_clear_multi_dio(BOARD_LED_ALL);
+}
 /*---------------------------------------------------------------------------*/
-#endif /* PROJECT_CONF_H_ */
+unsigned char
+leds_arch_get(void)
+{
+  return c;
+}
 /*---------------------------------------------------------------------------*/
+void
+leds_arch_set(unsigned char leds)
+{
+  c = leds;
+#if 0
+  ti_lib_gpio_clear_multi_dio(BOARD_LED_ALL);
+
+  if((leds & LEDS_RED) == LEDS_RED) {
+    ti_lib_gpio_set_dio(BOARD_IOID_LED_1);
+  }
+  if((leds & LEDS_YELLOW) == LEDS_YELLOW) {
+    ti_lib_gpio_set_dio(BOARD_IOID_LED_2);
+  }
+#else
+  ti_lib_gpio_set_multi_dio(BOARD_LED_ALL);
+
+  if((leds & LEDS_RED) == LEDS_RED) {
+    ti_lib_gpio_clear_dio(BOARD_IOID_LED_1);
+  }
+  if((leds & LEDS_YELLOW) == LEDS_YELLOW) {
+    ti_lib_gpio_clear_dio(BOARD_IOID_LED_2);
+  }
+#endif
+}
+/*---------------------------------------------------------------------------*/
+/** @} */

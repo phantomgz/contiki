@@ -129,7 +129,13 @@ CUSTOM_RULE_LINK=1
 ### We don't really need the .hex and .bin for the .$(TARGET) but let's make
 ### sure they get built
 %.$(TARGET): %.elf %.hex %.bin
-	cp $< $@
+#	cp $< $@
+	echo "cp $< $@"
+#ifeq ($(HOST_OS),Windows)
+#	copy $< $@
+#else
+#	cp $< $@
+#endif	
 
 # a target that gives a user-friendly memory profile, taking into account the RAM
 # that is statically occupied by the stack as defined in the linker script

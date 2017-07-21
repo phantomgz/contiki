@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Texas Instruments Incorporated - http://www.ti.com/
+ * Copyright (c) 2015, Texas Instruments Incorporated - http://www.ti.com/
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -28,19 +28,38 @@
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 /*---------------------------------------------------------------------------*/
-#ifndef PROJECT_CONF_H_
-#define PROJECT_CONF_H_
+/**
+ * \addtogroup launchpad-peripherals
+ * @{
+ *
+ * \defgroup launchpad-button-sensor LaunchPad Button Driver
+ *
+ * One of the buttons can be configured as general purpose or as an on/off key
+ * @{
+ *
+ * \file
+ * Header file for the LaunchPad Button Driver
+ */
 /*---------------------------------------------------------------------------*/
-/* Disable button shutdown functionality */
-#define BUTTON_SENSOR_CONF_ENABLE_SHUTDOWN    0
+#ifndef BUTTON_SENSOR_H_
+#define BUTTON_SENSOR_H_
 /*---------------------------------------------------------------------------*/
-/* Enable the ROM bootloader */
-#define ROM_BOOTLOADER_ENABLE                 1
+#include "lib/sensors.h"
 /*---------------------------------------------------------------------------*/
-/* Change to match your configuration */
-#define IEEE802154_CONF_PANID            0xABCD
-#define RF_CORE_CONF_CHANNEL                 25
-#define RF_BLE_CONF_ENABLED                   0
+#define BUTTON_SENSOR "Button"
 /*---------------------------------------------------------------------------*/
-#endif /* PROJECT_CONF_H_ */
+#define BUTTON_SENSOR_VALUE_STATE    0
+#define BUTTON_SENSOR_VALUE_DURATION 1
+
+#define BUTTON_SENSOR_VALUE_RELEASED 0
+#define BUTTON_SENSOR_VALUE_PRESSED  1
 /*---------------------------------------------------------------------------*/
+extern const struct sensors_sensor button_left_sensor;
+extern const struct sensors_sensor button_right_sensor;
+/*---------------------------------------------------------------------------*/
+#endif /* BUTTON_SENSOR_H_ */
+/*---------------------------------------------------------------------------*/
+/**
+ * @}
+ * @}
+ */

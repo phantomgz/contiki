@@ -186,7 +186,7 @@ main(void)
 
   serial_line_init();
 
-  printf("Starting " CONTIKI_VERSION_STRING "\n");
+  printf("\nStarting " CONTIKI_VERSION_STRING "\n");
   printf("With DriverLib v%u.%u\n", DRIVERLIB_RELEASE_GROUP,
          DRIVERLIB_RELEASE_BUILD);
   printf(BOARD_STRING "\n");
