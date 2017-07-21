@@ -101,7 +101,7 @@
 #include <stdio.h>
 #include <stdint.h>
 /*---------------------------------------------------------------------------*/
-#define CC26XX_DEMO_LOOP_INTERVAL       (CLOCK_SECOND * 20)
+#define CC26XX_DEMO_LOOP_INTERVAL       (CLOCK_SECOND * 5)  // 20
 #define CC26XX_DEMO_LEDS_PERIODIC       LEDS_YELLOW
 #define CC26XX_DEMO_LEDS_BUTTON         LEDS_RED
 #define CC26XX_DEMO_LEDS_REBOOT         LEDS_ALL

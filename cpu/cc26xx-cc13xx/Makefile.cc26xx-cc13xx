@@ -46,10 +46,14 @@ CFLAGS += -Werror
 endif
 
 ### Are we building with code size optimisations?
+### by phantom
+CFLAGS += -g
 ifeq ($(SMALL),1)
-  CFLAGS += -Os
+#  CFLAGS += -Os
+  CFLAGS += -O0
 else
-  CFLAGS += -O2
+#  CFLAGS += -O2
+  CFLAGS += -O0
 endif
 
 ### If the user-specified a Node ID, pass a define
