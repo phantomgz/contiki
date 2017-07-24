@@ -118,6 +118,8 @@
 #ifndef LC_H_
 #define LC_H_
 
+#define LC_CONF_INCLUDE "lc-addrlabels.h"
+
 #ifdef LC_CONF_INCLUDE
 #include LC_CONF_INCLUDE
 #else /* LC_CONF_INCLUDE */
