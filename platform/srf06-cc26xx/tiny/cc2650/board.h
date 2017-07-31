@@ -97,8 +97,8 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_UART_RX        IOID_10       // IOID_2
-#define BOARD_IOID_UART_TX        IOID_11       // IOID_3
+#define BOARD_IOID_UART_RX        IOID_2        // IOID_10
+#define BOARD_IOID_UART_TX        IOID_3        // IOID_11
 #define BOARD_IOID_UART_RTS       IOID_UNUSED   // IOID_18
 #define BOARD_IOID_UART_CTS       IOID_UNUSED   // IOID_19
 #define BOARD_UART_RX             (1 << BOARD_IOID_UART_RX)
