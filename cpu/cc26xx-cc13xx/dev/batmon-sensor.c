@@ -64,7 +64,7 @@ static int enabled = SENSOR_STATUS_DISABLED;
  * \return The value as returned by the respective CC26xxware function
  */
 static int
-value(int type)
+values(int type)
 {
   if(enabled == SENSOR_STATUS_DISABLED) {
     PRINTF("Sensor Disabled\n");
@@ -134,6 +134,12 @@ status(int type)
   return SENSOR_STATUS_DISABLED;
 }
 /*---------------------------------------------------------------------------*/
+#if 0
 SENSORS_SENSOR(batmon_sensor, "Battery Monitor", value, configure, status);
+#else
+
+const struct sensors_sensor batmon_sensor = { "Battery Monitor", values, configure, status };
+
+#endif
 /*---------------------------------------------------------------------------*/
 /** @} */

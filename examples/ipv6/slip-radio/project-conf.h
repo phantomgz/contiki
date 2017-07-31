@@ -30,12 +30,15 @@
 #ifndef PROJECT_CONF_H_
 #define PROJECT_CONF_H_
 
+/*
 #undef QUEUEBUF_CONF_NUM
 #define QUEUEBUF_CONF_NUM          4
 
 #undef UIP_CONF_BUFFER_SIZE
 #define UIP_CONF_BUFFER_SIZE    140
+*/
 
+#define RF_CORE_CONF_CHANNEL 25
 #undef UIP_CONF_ROUTER
 #define UIP_CONF_ROUTER                 0
 
@@ -74,5 +77,9 @@
 
 #undef UART1_CONF_RX_WITH_DMA
 #define UART1_CONF_RX_WITH_DMA           1
+
+/* Enable the ROM bootloader */
+#define ROM_BOOTLOADER_ENABLE            1	// by phantom
+
 
 #endif /* PROJECT_CONF_H_ */

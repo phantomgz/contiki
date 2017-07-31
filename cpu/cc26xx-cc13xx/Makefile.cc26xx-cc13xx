@@ -48,12 +48,15 @@ endif
 ### Are we building with code size optimisations?
 ### by phantom
 CFLAGS += -g
-ifeq ($(SMALL),1)
-#  CFLAGS += -Os
+
+ifeq ($(CC_DEBUG),1)
   CFLAGS += -O0
 else
-#  CFLAGS += -O2
-  CFLAGS += -O0
+  ifeq ($(SMALL),1)
+    CFLAGS += -Os
+  else 
+    CFLAGS += -O2
+  endif
 endif
 
 ### If the user-specified a Node ID, pass a define
@@ -134,7 +137,9 @@ CUSTOM_RULE_LINK=1
 ### sure they get built
 %.$(TARGET): %.elf %.hex %.bin
 #	cp $< $@
-	echo "cp $< $@"
+	@echo "cp $< $@"
+	@echo "SMALL = $(SMALL)"
+	@echo "CC_DEBUG = $(CC_DEBUG)"
 #ifeq ($(HOST_OS),Windows)
 #	copy $< $@
 #else
