@@ -24,8 +24,10 @@ CONTIKI_SOURCEFILES += $(CONTIKI_TARGET_SOURCEFILES)
 CLEAN += *.srf06-cc26xx
 
 ### Unless the example dictates otherwise, build with code size optimisations
-ifndef SMALL
-  SMALL = 0
+ifneq ($(CCDebug),1)
+  ifndef SMALL
+	  SMALL = 0
+	endif
 endif
 
 ### Define the CPU directory and pull in the correct CPU makefile. This will
