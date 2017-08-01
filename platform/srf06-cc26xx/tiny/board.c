@@ -41,7 +41,7 @@
 #include "lpm.h"
 #include "ti-lib.h"
 #include "board-peripherals.h"
-#include "rf-core/rf-switch.h"
+// #include "rf-core/rf-switch.h" /* by phantom, r3.1 don't have */
 
 #include <stdint.h>
 #include <string.h>
@@ -102,7 +102,8 @@ board_init()
   configure_unused_pins();
 
   /* Initialise the RF switch if present */
-  rf_switch_init();
+  /* by phantom, r3.1 don't have */
+  // rf_switch_init();
 
   /* Re-enable interrupt if initially enabled. */
   if(!int_disabled) {
