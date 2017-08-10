@@ -337,6 +337,8 @@ cc26xx_web_demo_restore_defaults(void)
   leds_off(LEDS_ALL);
 }
 /*---------------------------------------------------------------------------*/
+extern unsigned char strncasecmp(const char *s1, const char *s2, unsigned char n);
+
 static int
 defaults_post_handler(char *key, int key_len, char *val, int val_len)
 {
@@ -922,6 +924,11 @@ PROCESS_THREAD(cc26xx_web_demo_process, ev, data)
         ctimer_set(&ct, NO_NET_LED_DURATION, publish_led_off, NULL);
         etimer_set(&et, CC26XX_WEB_DEMO_NET_CONNECT_PERIODIC);
       }
+	  else {	// by phantom: live led
+		leds_on(CC26XX_WEB_DEMO_STATUS_LED);
+		ctimer_set(&ct, 1, publish_led_off, NULL);
+		etimer_set(&et, CLOCK_SECOND * 2);
+	  }
     }
 
 #if CC26XX_WEB_DEMO_READ_PARENT_RSSI
@@ -959,7 +966,7 @@ PROCESS_THREAD(cc26xx_web_demo_process, ev, data)
     } else if(ev == sensors_event && data == &mpu_9250_sensor) {
       get_mpu_reading();
 #endif
-    }
+    } // while(1)
 
     PROCESS_YIELD();
   }

@@ -117,12 +117,17 @@ watchdog_init(void)
 void
 watchdog_start(void)
 {
+#if 0
   uint32_t lock_status = unlock_config();
 
   watchdog_periodic();
   ti_lib_watchdog_reset_enable();
 
   lock_config(lock_status);
+#else
+  #warning "disabled watchdong_start() "
+
+#endif  
 }
 /*---------------------------------------------------------------------------*/
 /**

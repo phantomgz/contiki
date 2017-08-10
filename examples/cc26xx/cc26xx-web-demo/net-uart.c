@@ -74,7 +74,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /*---------------------------------------------------------------------------*/
-#define DEBUG DEBUG_NONE
+#define DEBUG DEBUG_FULL // DEBUG DEBUG_NONE    // DEBUG_FULL /* by phantom */
 #include "net/ip/uip-debug.h"
 /*---------------------------------------------------------------------------*/
 #define REMOTE_PORT  7777
@@ -157,6 +157,8 @@ keep_uart_on(void)
   cc26xx_uart_set_input(serial_line_input_byte);
 }
 /*---------------------------------------------------------------------------*/
+extern unsigned char strncasecmp(const char *s1, const char *s2, unsigned char n);
+
 static int
 remote_port_post_handler(char *key, int key_len, char *val, int val_len)
 {

@@ -206,6 +206,13 @@ putchar(int c)
   return c;
 }
 #endif
+
+#define CC26XX_WEB_DEMO_STATUS_LED LEDS_GREEN
+static void publish_led_off(void *d)
+{
+  leds_off(CC26XX_WEB_DEMO_STATUS_LED);
+}
+
 /*---------------------------------------------------------------------------*/
 PROCESS(slip_radio_process, "Slip radio process");
 AUTOSTART_PROCESSES(&slip_radio_process);
@@ -213,6 +220,7 @@ AUTOSTART_PROCESSES(&slip_radio_process);
 PROCESS_THREAD(slip_radio_process, ev, data)
 {
   static struct etimer et;
+  static struct ctimer ct;
   PROCESS_BEGIN();
 
   init();
@@ -232,6 +240,8 @@ PROCESS_THREAD(slip_radio_process, ev, data)
 #ifdef SLIP_RADIO_CONF_SENSORS
       SLIP_RADIO_CONF_SENSORS.send();
 #endif
+      leds_on(CC26XX_WEB_DEMO_STATUS_LED);
+      ctimer_set(&ct, 2, publish_led_off, NULL);
     }
   }
   PROCESS_END();

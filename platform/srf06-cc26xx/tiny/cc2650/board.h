@@ -84,7 +84,7 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_LED_1          IOID_22   // IOID_6
+#define BOARD_IOID_LED_1          IOID_21   // IOID_6
 #define BOARD_IOID_LED_2          IOID_22   // IOID_7
 #define BOARD_LED_1               (1 << BOARD_IOID_LED_1)
 #define BOARD_LED_2               (1 << BOARD_IOID_LED_2)
@@ -208,7 +208,7 @@
 #define BOARD_UNUSED_PINS { \
     IOID_0,  IOID_1,  IOID_2,  IOID_3,  IOID_4,  IOID_5,  IOID_6,  IOID_7, \
     IOID_8,                             IOID_12, IOID_13, IOID_14, IOID_15, \
-    IOID_16, IOID_17, IOID_18, IOID_19, IOID_20, IOID_21,          IOID_23, \
+    IOID_16, IOID_17, IOID_18, IOID_19, IOID_20,                   IOID_23, \
     IOID_24, IOID_25, IOID_26, IOID_27, IOID_28, IOID_29, IOID_30, IOID_UNUSED \
 }
 #endif

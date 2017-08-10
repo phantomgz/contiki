@@ -66,6 +66,14 @@
 /* #define NETSTACK_CONF_RDC     nullrdc_noframer_driver */
 #define NETSTACK_CONF_RDC     contikimac_driver
 
+
+#if 0   /* by phantom */
+#ifndef NETSTACK_CONF_RDC_CHANNEL_CHECK_RATE
+#define NETSTACK_CONF_RDC_CHANNEL_CHECK_RATE  32
+#endif /* NETSTACK_CONF_RDC_CHANNEL_CHECK_RATE */
+#endif
+
+
 #undef NETSTACK_CONF_NETWORK
 #define NETSTACK_CONF_NETWORK slipnet_driver
 

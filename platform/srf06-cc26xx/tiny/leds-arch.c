@@ -55,7 +55,7 @@ leds_arch_init(void)
   ti_lib_rom_ioc_pin_type_gpio_output(BOARD_IOID_LED_1);
   ti_lib_rom_ioc_pin_type_gpio_output(BOARD_IOID_LED_2);
 
-  ti_lib_gpio_set_multi_dio(BOARD_LED_ALL);   // ti_lib_gpio_clear_multi_dio(BOARD_LED_ALL);
+  ti_lib_gpio_set_multi_dio(BOARD_LED_ALL); // ti_lib_gpio_clear_multi_dio(BOARD_LED_ALL);
 }
 /*---------------------------------------------------------------------------*/
 unsigned char
@@ -83,7 +83,7 @@ leds_arch_set(unsigned char leds)
   if((leds & LEDS_RED) == LEDS_RED) {
     ti_lib_gpio_clear_dio(BOARD_IOID_LED_1);
   }
-  if((leds & LEDS_YELLOW) == LEDS_YELLOW) {
+  if((leds & LEDS_GREEN) == LEDS_GREEN) {   // if((leds & LEDS_YELLOW) == LEDS_YELLOW) {
     ti_lib_gpio_clear_dio(BOARD_IOID_LED_2);
   }
 #endif

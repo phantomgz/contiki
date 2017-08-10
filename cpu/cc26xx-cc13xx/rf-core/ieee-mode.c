@@ -76,7 +76,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 /*---------------------------------------------------------------------------*/
-#define DEBUG 0
+#define DEBUG 1 /* by phantom */
 #if DEBUG
 #define PRINTF(...) printf(__VA_ARGS__)
 #else
