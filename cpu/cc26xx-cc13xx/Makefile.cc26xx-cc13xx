@@ -50,7 +50,7 @@ endif
 CFLAGS += -g
 
 ifeq ($(CC_DEBUG),1)
-  CFLAGS += -O0
+  CFLAGS += -Og
 else
   ifeq ($(SMALL),1)
     CFLAGS += -Os
