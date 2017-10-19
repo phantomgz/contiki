@@ -926,7 +926,7 @@ PROCESS_THREAD(cc26xx_web_demo_process, ev, data)
       }
 	  else {	// by phantom: live led
 		leds_on(CC26XX_WEB_DEMO_STATUS_LED);
-		ctimer_set(&ct, 1, publish_led_off, NULL);
+		ctimer_set(&ct, 10, publish_led_off, NULL);
 		etimer_set(&et, CLOCK_SECOND * 2);
 	  }
     }

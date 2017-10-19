@@ -99,8 +99,8 @@
  */
 #define BOARD_IOID_UART_RX        IOID_2
 #define BOARD_IOID_UART_TX        IOID_3
-#define BOARD_IOID_UART_RTS       IOID_18
-#define BOARD_IOID_UART_CTS       IOID_19
+#define BOARD_IOID_UART_RTS       IOID_UNUSED   // IOID_18
+#define BOARD_IOID_UART_CTS       IOID_UNUSED   // IOID_19
 #define BOARD_UART_RX             (1 << BOARD_IOID_UART_RX)
 #define BOARD_UART_TX             (1 << BOARD_IOID_UART_TX)
 #define BOARD_UART_RTS            (1 << BOARD_IOID_UART_RTS)
@@ -113,8 +113,8 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_KEY_LEFT       IOID_13
-#define BOARD_IOID_KEY_RIGHT      IOID_14
+#define BOARD_IOID_KEY_LEFT       IOID_22   // IOID_13
+#define BOARD_IOID_KEY_RIGHT      IOID_23   // IOID_14
 #define BOARD_KEY_LEFT            (1 << BOARD_IOID_KEY_LEFT)
 #define BOARD_KEY_RIGHT           (1 << BOARD_IOID_KEY_RIGHT)
 /** @} */
@@ -135,7 +135,7 @@
  * Those values are not meant to be modified by the user
  * @{
  */
-#define BOARD_IOID_FLASH_CS       IOID_20
+#define BOARD_IOID_FLASH_CS       IOID_11   // IOID_20
 #define BOARD_FLASH_CS            (1 << BOARD_IOID_FLASH_CS)
 #define BOARD_IOID_SPI_CLK_FLASH  IOID_10
 /** @} */

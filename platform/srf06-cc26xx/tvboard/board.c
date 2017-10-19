@@ -33,7 +33,7 @@
  * @{
  *
  * \file
- *  LaunchPad-specific board initialisation driver
+ *  LaunchPad-specific board initialization driver
  */
 /*---------------------------------------------------------------------------*/
 #include "contiki-conf.h"
@@ -66,6 +66,7 @@ LPM_MODULE(launchpad_module, NULL, NULL, wakeup_handler, LPM_DOMAIN_NONE);
 static void
 configure_unused_pins(void)
 {
+#if 0   // by phantom
   uint32_t pins[] = {
     BOARD_IOID_CS, BOARD_IOID_TDO, BOARD_IOID_TDI, BOARD_IOID_DIO12,
     BOARD_IOID_DIO15, BOARD_IOID_DIO21, BOARD_IOID_DIO22, BOARD_IOID_DIO23,
@@ -73,6 +74,15 @@ configure_unused_pins(void)
     BOARD_IOID_DIO28, BOARD_IOID_DIO29, BOARD_IOID_DIO30,
     IOID_UNUSED
   };
+#else
+  uint32_t pins[] = {
+    IOID_0,  IOID_1,                    IOID_4, IOID_5,
+                                        IOID_12, IOID_13, IOID_14, IOID_15,
+    IOID_16, IOID_17, IOID_18, IOID_19, IOID_20, IOID_21,
+    IOID_24, IOID_25, IOID_26, IOID_27, IOID_28, IOID_29, IOID_30,
+    IOID_UNUSED
+  };
+#endif
 
   uint32_t *pin;
 

@@ -48,6 +48,8 @@
 #include "slip-radio.h"
 #include "packetutils.h"
 
+#include "dev/leds.h"   // by phantom
+
 #ifdef SLIP_RADIO_CONF_SENSORS
 extern const struct slip_radio_sensors SLIP_RADIO_CONF_SENSORS;
 #endif
@@ -241,7 +243,7 @@ PROCESS_THREAD(slip_radio_process, ev, data)
       SLIP_RADIO_CONF_SENSORS.send();
 #endif
       leds_on(CC26XX_WEB_DEMO_STATUS_LED);
-      ctimer_set(&ct, 2, publish_led_off, NULL);
+      ctimer_set(&ct, 10, publish_led_off, NULL);
     }
   }
   PROCESS_END();
