@@ -118,7 +118,7 @@
 #ifndef LC_H_
 #define LC_H_
 
-#define LC_CONF_INCLUDE "lc-addrlabels.h"
+#define LC_CONF_INCLUDE "lc-addrlabels.h"	// by phantom, 选择不用 switch 做 PROCESS_BEGIN
 
 #ifdef LC_CONF_INCLUDE
 #include LC_CONF_INCLUDE

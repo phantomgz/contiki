@@ -17,3 +17,6 @@
 [submodule "tools/sensniff"]
 	path = tools/sensniff
 	url = https://github.com/g-oikonomou/sensniff.git
+[submodule "examples/cc26xx/cc26xx-pwm"]
+	path = examples/cc26xx/cc26xx-pwm
+	url = https://github.com/nchronas/cc26xx-contiki-demo.git
